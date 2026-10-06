@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="HEMM_Dumper_01">
+    <pose>0 0 0 0 0 0</pose>
+    <self_collide>false</self_collide>
+
+    <!-- Main chassis -->
+    <link name="chassis">
+      <pose>0 0 1.25 0 0 0</pose>
+      <inertial>
+        <mass>9000</mass>
+        <inertia>
+          <ixx>8000</ixx><iyy>22000</iyy><izz>26000</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><box><size>8.0 3.2 1.0</size></box></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><box><size>8.0 3.2 1.0</size></box></geometry>
+        <material>
+          <ambient>0.95 0.65 0.05 1</ambient>
+          <diffuse>0.95 0.65 0.05 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Front cab -->
+    <link name="front_body">
+      <pose>2.45 0 2.35 0 0 0</pose>
+      <inertial>
+        <mass>1800</mass>
+        <inertia>
+          <ixx>1600</ixx><iyy>2400</iyy><izz>1800</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><box><size>2.2 3.0 2.2</size></box></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><box><size>2.2 3.0 2.2</size></box></geometry>
+        <material>
+          <ambient>0.95 0.65 0.05 1</ambient>
+          <diffuse>0.95 0.65 0.05 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Dump bed -->
+    <link name="dump_bed">
+      <pose>-1.35 0 2.15 0 0 0</pose>
+      <inertial>
+        <mass>1400</mass>
+        <inertia>
+          <ixx>1700</ixx><iyy>2800</iyy><izz>3000</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><box><size>4.5 3.0 1.5</size></box></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><box><size>4.5 3.0 1.5</size></box></geometry>
+        <material>
+          <ambient>0.85 0.55 0.03 1</ambient>
+          <diffuse>0.85 0.55 0.03 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Four wheels. Wheel cylinders have their axis along Y. -->
+    <link name="left_front_wheel">
+      <pose>2.65 1.75 0.70 1.5707963 0 0</pose>
+      <inertial>
+        <mass>450</mass>
+        <inertia>
+          <ixx>82</ixx><iyy>110</iyy><izz>82</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.70</radius><length>0.50</length></cylinder></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.70</radius><length>0.50</length></cylinder></geometry>
+        <material>
+          <ambient>0.04 0.04 0.04 1</ambient>
+          <diffuse>0.04 0.04 0.04 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name="right_front_wheel">
+      <pose>2.65 -1.75 0.70 1.5707963 0 0</pose>
+      <inertial>
+        <mass>450</mass>
+        <inertia>
+          <ixx>82</ixx><iyy>110</iyy><izz>82</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.70</radius><length>0.50</length></cylinder></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.70</radius><length>0.50</length></cylinder></geometry>
+        <material>
+          <ambient>0.04 0.04 0.04 1</ambient>
+          <diffuse>0.04 0.04 0.04 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name="left_rear_wheel">
+      <pose>-2.65 1.75 0.70 1.5707963 0 0</pose>
+      <inertial>
+        <mass>500</mass>
+        <inertia>
+          <ixx>92</ixx><iyy>122</iyy><izz>92</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.70</radius><length>0.50</length></cylinder></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.70</radius><length>0.50</length></cylinder></geometry>
+        <material>
+          <ambient>0.04 0.04 0.04 1</ambient>
+          <diffuse>0.04 0.04 0.04 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <link name="right_rear_wheel">
+      <pose>-2.65 -1.75 0.70 1.5707963 0 0</pose>
+      <inertial>
+        <mass>500</mass>
+        <inertia>
+          <ixx>92</ixx><iyy>122</iyy><izz>92</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.70</radius><length>0.50</length></cylinder></geometry>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.70</radius><length>0.50</length></cylinder></geometry>
+        <material>
+          <ambient>0.04 0.04 0.04 1</ambient>
+          <diffuse>0.04 0.04 0.04 1</diffuse>
+        </material>
+      </visual>
+    </link>
+
+    <!-- Simple sensor mast -->
+    <link name="sensor_mast">
+      <pose>0 0 3.15 0 0 0</pose>
+      <inertial><mass>80</mass><inertia><ixx>20</ixx><iyy>20</iyy><izz>20</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.10</radius><length>1.0</length></cylinder></geometry>
+        <material><ambient>0.05 0.05 0.05 1</ambient><diffuse>0.05 0.05 0.05 1</diffuse></material>
+      </visual>
+    </link>
+
+    <!-- Wheel joints: all rotate about the vehicle Y axis. -->
+    <joint name="front_left_wheel_joint" type="revolute">
+      <parent>chassis</parent><child>left_front_wheel</child>
+      <pose>2.65 1.75 0.70 0 0 0</pose>
+      <axis><xyz>0 1 0</xyz><limit><lower>-1e16</lower><upper>1e16</upper></limit></axis>
+    </joint>
+    <joint name="front_right_wheel_joint" type="revolute">
+      <parent>chassis</parent><child>right_front_wheel</child>
+      <pose>2.65 -1.75 0.70 0 0 0</pose>
+      <axis><xyz>0 1 0</xyz><limit><lower>-1e16</lower><upper>1e16</upper></limit></axis>
+    </joint>
+    <joint name="rear_left_wheel_joint" type="revolute">
+      <parent>chassis</parent><child>left_rear_wheel</child>
+      <pose>-2.65 1.75 0.70 0 0 0</pose>
+      <axis><xyz>0 1 0</xyz><limit><lower>-1e16</lower><upper>1e16</upper></limit></axis>
+    </joint>
+    <joint name="rear_right_wheel_joint" type="revolute">
+      <parent>chassis</parent><child>right_rear_wheel</child>
+      <pose>-2.65 -1.75 0.70 0 0 0</pose>
+      <axis><xyz>0 1 0</xyz><limit><lower>-1e16</lower><upper>1e16</upper></limit></axis>
+    </joint>
+
+    <joint name="front_body_joint" type="fixed">
+      <parent>chassis</parent><child>front_body</child>
+    </joint>
+    <joint name="dump_bed_joint" type="fixed">
+      <parent>chassis</parent><child>dump_bed</child>
+    </joint>
+    <joint name="sensor_mast_joint" type="fixed">
+      <parent>chassis</parent><child>sensor_mast</child>
+    </joint>
+
+    <!-- Gazebo Harmonic differential drive: both wheels on each side are driven. -->
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>front_left_wheel_joint</left_joint>
+      <left_joint>rear_left_wheel_joint</left_joint>
+      <right_joint>front_right_wheel_joint</right_joint>
+      <right_joint>rear_right_wheel_joint</right_joint>
+      <wheel_separation>3.50</wheel_separation>
+      <wheel_radius>0.70</wheel_radius>
+      <topic>/cmd_vel</topic>
+      <odom_topic>/odom</odom_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+      <odom_publish_frequency>30</odom_publish_frequency>
+    </plugin>
+  </model>
+</sdf>

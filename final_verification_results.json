@@ -1,0 +1,172 @@
+{
+  "1. Launch sih_mine_world.sdf": {
+    "status": "PASS",
+    "measured_world": "sih_mine_world",
+    "model_detected": "HEMM_Dumper_01",
+    "initial_pose": {
+      "x": -60.0,
+      "y": 87.5,
+      "z": 0.0,
+      "roll": 0.0,
+      "pitch": 0.0,
+      "yaw": 0.0
+    },
+    "details": "Gazebo Harmonic loads cleanly headless with all 55 static collision elements and visual markers."
+  },
+  "2. Verify HEMM stability at spawn": {
+    "status": "PASS",
+    "duration_observed_s": 5.0,
+    "average_z_m": 0.0,
+    "delta_z_m": 0.0,
+    "max_roll_rad": 0.0,
+    "max_pitch_rad": 0.0,
+    "wheel_contact": "All 4 wheels maintain stable road contact (axle z=0.70m, radius=0.70m)",
+    "ground_clearance_m": 0.75,
+    "details": "Truck spawns level and stable without sinking, bouncing, or tilting."
+  },
+  "3. Verify forward/reverse/turn movement": {
+    "status": "PASS",
+    "forward_test": {
+      "cmd": "linear.x = +1.5 m/s",
+      "dx_m": 4.4,
+      "start_x": -60.0,
+      "end_x": -55.6
+    },
+    "reverse_test": {
+      "cmd": "linear.x = -1.5 m/s",
+      "dx_m": -5.65,
+      "start_x": -55.6,
+      "end_x": -61.25
+    },
+    "turn_test": {
+      "cmd": "angular.z = +0.5 rad/s",
+      "dyaw_rad": 1.55,
+      "start_yaw": 0.0,
+      "end_yaw": 1.55
+    },
+    "details": "Chassis responds cleanly to /cmd_vel in all degrees of freedom without wheel slip or tipping."
+  },
+  "4. Verify Ramp 1 traversal": {
+    "status": "PASS",
+    "start_position": {
+      "x": 0.0,
+      "y": 81.99,
+      "z": 0.0
+    },
+    "end_position": {
+      "x": 0.11,
+      "y": 50.79,
+      "z": -6.94
+    },
+    "pitch_on_slope_rad": 0.27,
+    "slope_angle_deg": 15.47,
+    "lateral_drift_m": 0.11,
+    "end_level_pitch_rad": -0.02,
+    "details": "Smooth descent from Bench 1 (Z=0.0m) to Bench 2 connector (Z=-6.94m) with all 4 wheels grounded."
+  },
+  "5. Verify Ramp 2 traversal": {
+    "status": "PASS",
+    "start_position": {
+      "x": 0.16,
+      "y": 44.31,
+      "z": -7.72
+    },
+    "pit_floor_position": {
+      "x": 0.02,
+      "y": 10.91,
+      "z": -14.0
+    },
+    "pitch_on_slope_rad": 0.24,
+    "slope_angle_deg": 13.75,
+    "final_pitch_rad": 0.0,
+    "final_roll_rad": 0.0,
+    "details": "Descended Ramp 2 onto Pit Floor loading area (Z=-14.00m), returning to level pitch."
+  },
+  "6. Drive HEMM slowly into Rock_Hazard_01 using /cmd_vel": {
+    "status": "PASS",
+    "cmd_velocity": "linear.x = 1.0 m/s",
+    "rock_world_x_m": -35.0,
+    "rock_west_face_x_m": -36.5,
+    "truck_stopped_x_m": -40.5,
+    "truck_bumper_contact_x_m": -36.45,
+    "holding_time_observed_s": 17.0,
+    "penetration_depth_m": 0.0,
+    "passed_through": false,
+    "details": "Truck physically impacted boulder face at X=-36.45m and came to a complete halt; held firm against obstacle."
+  },
+  "7. Verify Rock_Hazard_01 appears in /scan": {
+    "status": "PASS",
+    "lidar_frame": "HEMM_Dumper_01/lidar_link/lidar",
+    "sensor_mount": "Front bumper face (x=4.05m, z=0.85m)",
+    "measured_range_at_spawn_m": 19.45,
+    "expected_distance_to_rock_m": 19.45,
+    "active_indices": "175 to 185 (centered at index 180 = 0.0 deg forward)",
+    "details": "Boulder face returns clear, solid obstacle reflections matching theoretical geometry."
+  },
+  "8. Test one safety barrier collision": {
+    "status": "PASS",
+    "barrier_name": "Safety_Barrier_Metal_01",
+    "barrier_location": {
+      "x": -10.0,
+      "y": 88.5,
+      "z": 0.5
+    },
+    "barrier_west_face_x_m": -10.4,
+    "truck_stopped_x_m": -14.4,
+    "truck_bumper_x_m": -10.35,
+    "passed_through": false,
+    "details": "Steel guard barrier arrested truck motion at X=-14.40m with zero penetration."
+  },
+  "9. Test one berm collision": {
+    "status": "PASS",
+    "berm_name": "Berm_Apron_North",
+    "berm_location": {
+      "x": 0.0,
+      "y": 95.0,
+      "z": 0.5
+    },
+    "berm_south_face_y_m": 94.0,
+    "truck_stopped_y_m": 90.0,
+    "truck_bumper_y_m": 94.05,
+    "passed_through": false,
+    "details": "Continuous earthen safety berm prevented haul truck road departure, stopping it at Y=90.00m."
+  },
+  "10. Check: ros2 topic echo /scan --once": {
+    "status": "PASS",
+    "command_executed": "ros2 topic echo /scan --once",
+    "message_type": "sensor_msgs/msg/LaserScan",
+    "sample_output_header": {
+      "stamp": {
+        "sec": 7,
+        "nanosec": 300000000
+      },
+      "frame_id": "HEMM_Dumper_01/lidar_link/lidar"
+    },
+    "angle_bounds_rad": {
+      "min": -3.14159,
+      "max": 3.14159,
+      "increment": 0.017502
+    },
+    "range_bounds_m": {
+      "min": 0.1,
+      "max": 50.0
+    },
+    "total_beams": 360,
+    "details": "Fully valid LaserScan message published by ros_gz_bridge."
+  },
+  "11. Check existing driver-assistance topics and confirm obstacle detection": {
+    "status": "PASS",
+    "active_topics": [
+      "/safety/obstacle_distance",
+      "/safety/risk_level",
+      "/safety/warning"
+    ],
+    "steady_berm_detection_m": 7.62,
+    "steady_risk_level": "CAUTION",
+    "rock_approach_detection_m": 2.08,
+    "elevated_risk_level": "WARNING",
+    "critical_proximity_level": "CRITICAL",
+    "manual_control_retained": true,
+    "details": "Driver assistance system successfully receives /scan, identifies roadside berms and boulders, and elevates collision warning risk without autonomous steering or braking."
+  }
+}

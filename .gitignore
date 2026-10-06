@@ -1,0 +1,39 @@
+__pycache__/
+*.pyc
+
+*.bak*
+*.log
+
+scan_dump.txt
+scan_dump_once.txt
+
+*.blend1
+
+dashboard_backup*/
+gazebo_backup*/
+
+*.zip
+
+.DS_Store
+
+# Diagnostic/development scripts
+check_lidar_angles.py
+diagnose_scan.py
+inspect_raw_scan.py
+live_test_approach.py
+live_verification_results.json
+
+# Old Gazebo duplicate
+sih_gazebo/
+
+# Gazebo backup files
+*_backup*.sdf
+*.pre_stability_fix
+
+# Legacy driver-assistance implementation
+driver_assistance_system.py
+launch_driver_assistance.sh
+test_driver_assistance_workflow.py
+test_live_approach_barrier.py
+test_rock_collision_and_lidar.py
+
