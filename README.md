@@ -508,7 +508,7 @@ The simulation demonstrates:
 Demo Video
 🎥 MINEGUARD AI Simulation Demo
 The complete demonstration is available in:
-media/demo/MINEGUARD_AI_SIH_Demo.mp4
+▶️ [Watch MINEGUARD AI Demo](https://github.com/Krishnavamsi88/MINEGUARD-AI/raw/refs/heads/main/media/demo/MINEGUARD_AI_SIH_Demo.mp4)
 
 Screenshots
 Mine Environment
